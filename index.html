@@ -10,7 +10,6 @@
   <style>
     :root {
       --bg-base: #070d17;
-      --bg-elevated: #0d1726;
       --surface: #122035;
       --surface-hover: #172842;
       --border: rgba(148, 163, 184, 0.14);
@@ -21,6 +20,7 @@
       --primary: #38bdf8;
       --primary-bright: #7dd3fc;
       --gold: #f59e0b;
+      --emerald: #10b981;
       --success: #22c55e;
       --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.42);
       --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.24);
@@ -131,7 +131,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
+      gap: 8px;
       padding: 8px 14px;
       border-radius: 10px;
       border: 1px solid var(--border);
@@ -149,6 +149,28 @@
       border-color: var(--border-accent);
       background: var(--surface-hover);
       transform: translateY(-1px);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    .btn-linkedin:hover {
+      border-color: rgba(10, 102, 194, 0.65);
+      color: #60a5fa;
+    }
+
+    .btn-facebook:hover {
+      border-color: rgba(59, 130, 246, 0.65);
+      color: #93c5fd;
+    }
+
+    .btn-instagram:hover {
+      border-color: rgba(236, 72, 153, 0.65);
+      color: #f472b6;
     }
 
     .btn-primary {
@@ -228,29 +250,119 @@
       margin-bottom: 24px;
     }
 
-    .kpi-grid {
+    /* Highlight Cards Grid (2x2) */
+    .highlights-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
       margin-bottom: 24px;
     }
 
-    .kpi-card {
+    .highlight-card {
       background: rgba(7, 13, 23, 0.65);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 15px 16px;
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .kpi-value {
+    .highlight-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .highlight-card.gold-accent {
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    .highlight-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cat-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .cat-tag.gold {
+      background: rgba(245, 158, 11, 0.14);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.28);
+    }
+
+    .cat-tag.emerald {
+      background: rgba(16, 185, 129, 0.14);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+    }
+
+    .cat-tag.sky {
+      background: rgba(56, 189, 248, 0.14);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+    }
+
+    .highlight-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .highlight-icon.gold {
+      background: rgba(245, 158, 11, 0.14);
+      color: #fbbf24;
+    }
+
+    .highlight-icon.emerald {
+      background: rgba(16, 185, 129, 0.14);
+      color: #34d399;
+    }
+
+    .highlight-icon.sky {
+      background: rgba(56, 189, 248, 0.14);
+      color: #7dd3fc;
+    }
+
+    .highlight-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .highlight-body {
+      text-align: end;
+    }
+
+    html[dir="ltr"] .highlight-body {
+      text-align: start;
+    }
+
+    .highlight-title {
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 3px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      line-height: 1.3;
     }
 
-    .kpi-label {
-      font-size: 0.83rem;
+    .highlight-sub {
+      font-size: 0.88rem;
       color: var(--text-muted);
       font-weight: 600;
     }
@@ -494,13 +606,8 @@
       opacity: 1;
     }
 
-    @media (max-width: 900px) {
-      .kpi-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
     @media (max-width: 780px) {
+      .highlights-grid,
       .grid-two {
         grid-template-columns: 1fr;
       }
@@ -512,12 +619,6 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .kpi-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media print {
       body {
         background: #ffffff;
@@ -526,16 +627,16 @@
       .navbar-wrap, .copy-btn, .toast, .social-row {
         display: none !important;
       }
-      .hero, .section-card, .exp-card, .kpi-card, .contact-box, .chip, .meta-item {
+      .hero, .section-card, .exp-card, .highlight-card, .contact-box, .chip, .meta-item {
         background: #ffffff !important;
         color: #0f172a !important;
         border: 1px solid #cbd5e1 !important;
         box-shadow: none !important;
       }
-      .hero-summary, .exp-card ul, .meta-key, .kpi-label {
+      .hero-summary, .exp-card ul, .meta-key, .highlight-sub {
         color: #334155 !important;
       }
-      .hero-role, .exp-period, .kpi-value {
+      .hero-role, .exp-period, .highlight-title {
         color: #0369a1 !important;
       }
     }
@@ -546,7 +647,7 @@
     <nav class="navbar">
       <a class="brand" href="#top">
         <span class="brand-mark">HS</span>
-        <span id="brandName">Hamada Sobhy Salem</span>
+        <span id="brandName">Hamada Sobhy Refaai Salem</span>
       </a>
 
       <div class="nav-links">
@@ -571,22 +672,72 @@
         Results-driven General Accountant with over 8 years of experience in accounting, cost control, and inventory management across Egypt, Saudi Arabia, and Kuwait. Skilled in data analysis, financial reporting, and preparing monthly Profit &amp; Loss (P&amp;L) statements using Excel, Oracle ERP, and Foodics for data cleaning, automation, and profit-loss forecasting.
       </p>
 
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-value" id="kpi1Val">8+ Years</div>
-          <div class="kpi-label" id="kpi1Lbl">Accounting &amp; Cost Control</div>
+      <div class="highlights-grid">
+        <div class="highlight-card gold-accent">
+          <div class="highlight-top">
+            <span class="cat-tag gold" id="hc1Tag">Regional Presence</span>
+            <span class="highlight-icon gold" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="highlight-body">
+            <div class="highlight-title" id="hc1Title">3 Countries</div>
+            <div class="highlight-sub" id="hc1Sub">Egypt • Saudi Arabia • Kuwait</div>
+          </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-value" id="kpi2Val">3 Markets</div>
-          <div class="kpi-label" id="kpi2Lbl">Egypt • KSA • Kuwait</div>
+
+        <div class="highlight-card">
+          <div class="highlight-top">
+            <span class="cat-tag emerald" id="hc2Tag">Years of Experience</span>
+            <span class="highlight-icon emerald" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="highlight-body">
+            <div class="highlight-title" id="hc2Title">8+ Years</div>
+            <div class="highlight-sub" id="hc2Sub">In Accounting &amp; Cost Control</div>
+          </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-value" id="kpi3Val">Monthly P&amp;L</div>
-          <div class="kpi-label" id="kpi3Lbl">Closing, Audits &amp; Forecasting</div>
+
+        <div class="highlight-card">
+          <div class="highlight-top">
+            <span class="cat-tag emerald" id="hc3Tag">Core Specialization</span>
+            <span class="highlight-icon emerald" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="highlight-body">
+            <div class="highlight-title" id="hc3Title">Profit &amp; Loss (P&amp;L)</div>
+            <div class="highlight-sub" id="hc3Sub">Inventory Audits, Closing &amp; Forecasting</div>
+          </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-value" id="kpi4Val">ERP &amp; Excel</div>
-          <div class="kpi-label" id="kpi4Lbl">Oracle ERP • Foodics • Automation</div>
+
+        <div class="highlight-card">
+          <div class="highlight-top">
+            <span class="cat-tag sky" id="hc4Tag">Systems &amp; Analytics</span>
+            <span class="highlight-icon sky" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </span>
+          </div>
+          <div class="highlight-body">
+            <div class="highlight-title" id="hc4Title">Oracle ERP &amp; Foodics</div>
+            <div class="highlight-sub" id="hc4Sub">Advanced Excel Automation &amp; Reporting</div>
+          </div>
         </div>
       </div>
 
@@ -605,9 +756,26 @@
       </div>
 
       <div class="social-row">
-        <a class="btn" href="https://linkedin.com/in/hamada-salem-8549b438a" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn" href="https://facebook.com/hamadasobhy340" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a class="btn" href="https://instagram.com/hamada_s.salem" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="btn btn-linkedin" href="https://linkedin.com/in/hamada-salem-8549b438a" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 17.34V10.67H6.12V17.34H8.34ZM7.23 9.75A1.29 1.29 0 1 0 7.23 7.17A1.29 1.29 0 0 0 7.23 9.75ZM17.88 17.34V13.68C17.88 11.72 16.83 10.81 15.43 10.81C14.3 10.81 13.8 11.43 13.52 11.86V10.67H11.3C11.33 11.15 11.3 17.34 11.3 17.34H13.52V13.62C13.52 13.42 13.54 13.22 13.6 13.08C13.76 12.68 14.12 12.27 14.73 12.27C15.52 12.27 15.66 12.87 15.66 13.75V17.34H17.88Z" />
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+
+        <a class="btn btn-facebook" href="https://facebook.com/hamadasobhy340" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" />
+          </svg>
+          <span>Facebook</span>
+        </a>
+
+        <a class="btn btn-instagram" href="https://instagram.com/hamada_s.salem" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 19.4 19.4 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2ZM16 3.8H8C5.68 3.8 3.8 5.68 3.8 8V16C3.8 18.32 5.68 20.2 8 20.2H16C18.32 20.2 20.2 18.32 20.2 16V8C20.2 5.68 18.32 3.8 16 3.8ZM12 7.2A4.8 4.8 0 1 1 7.2 12A4.8 4.8 0 0 1 12 7.2ZM12 9A3 3 0 1 0 15 12A3 3 0 0 0 12 9ZM17.35 5.65A1.15 1.15 0 1 1 16.2 6.8A1.15 1.15 0 0 1 17.35 5.65Z" />
+          </svg>
+          <span>Instagram</span>
+        </a>
       </div>
     </section>
 
@@ -749,14 +917,18 @@
         heroName: 'حمادة صبحي سالم',
         heroRole: 'محاسب عام | أخصائي رقابة تكاليف',
         heroSummary: 'محاسب عام يتمتع بأكثر من 8 سنوات من الخبرة في المحاسبة ورقابة التكاليف وإدارة المخزون عبر مصر والسعودية والكويت. يمتلك مهارات قوية في تحليل البيانات، إعداد التقارير المالية، وقوائم الأرباح والخسائر (P&L) الشهرية باستخدام Excel وOracle ERP وFoodics لتنظيف البيانات والأتمتة والتنبؤ المالي.',
-        kpi1Val: '+8 سنوات',
-        kpi1Lbl: 'خبرة في المحاسبة والتكاليف',
-        kpi2Val: '3 أسواق',
-        kpi2Lbl: 'مصر • السعودية • الكويت',
-        kpi3Val: 'قوائم P&L شهرية',
-        kpi3Lbl: 'إغلاق شهري ومراجعة وتنبؤ',
-        kpi4Val: 'ERP و Excel',
-        kpi4Lbl: 'Oracle ERP • Foodics • أتمتة',
+        hc1Tag: 'الانتشار الإقليمي',
+        hc1Title: '3 دول',
+        hc1Sub: 'مصر • السعودية • الكويت',
+        hc2Tag: 'سنوات الخبرة',
+        hc2Title: '+8 سنوات',
+        hc2Sub: 'في المحاسبة ومراقبة التكاليف',
+        hc3Tag: 'التخصص الأساسي',
+        hc3Title: 'الأرباح والخسائر',
+        hc3Sub: 'الجرد والتدقيق والتنبؤ المالي',
+        hc4Tag: 'الأنظمة والتحليل',
+        hc4Title: 'Oracle & Foodics',
+        hc4Sub: 'وأتمتة تقارير الإكسل المتقدمة',
         locText: 'الإسكندرية، مصر',
         expSectionTitle: 'الخبرات العملية',
         exp1Role: 'محاسب عام — الكويت (عن بُعد)',
@@ -817,14 +989,18 @@
         heroName: 'Hamada Sobhy Salem',
         heroRole: 'General Accountant | Cost Control Specialist',
         heroSummary: 'Results-driven General Accountant with over 8 years of experience in accounting, cost control, and inventory management across Egypt, Saudi Arabia, and Kuwait. Skilled in data analysis, financial reporting, and preparing monthly Profit & Loss (P&L) statements using Excel, Oracle ERP, and Foodics for data cleaning, automation, and profit-loss forecasting.',
-        kpi1Val: '8+ Years',
-        kpi1Lbl: 'Accounting & Cost Control',
-        kpi2Val: '3 Markets',
-        kpi2Lbl: 'Egypt • KSA • Kuwait',
-        kpi3Val: 'Monthly P&L',
-        kpi3Lbl: 'Closing, Audits & Forecasting',
-        kpi4Val: 'ERP & Excel',
-        kpi4Lbl: 'Oracle ERP • Foodics • Automation',
+        hc1Tag: 'Regional Presence',
+        hc1Title: '3 Countries',
+        hc1Sub: 'Egypt • Saudi Arabia • Kuwait',
+        hc2Tag: 'Years of Experience',
+        hc2Title: '8+ Years',
+        hc2Sub: 'In Accounting & Cost Control',
+        hc3Tag: 'Core Specialization',
+        hc3Title: 'Profit & Loss (P&L)',
+        hc3Sub: 'Inventory Audits, Closing & Forecasting',
+        hc4Tag: 'Systems & Analytics',
+        hc4Title: 'Oracle ERP & Foodics',
+        hc4Sub: 'Advanced Excel Automation & Reporting',
         locText: 'Alexandria, Egypt',
         expSectionTitle: 'Professional Experience',
         exp1Role: 'General Accountant — Kuwait (Remote)',
@@ -895,14 +1071,18 @@
         heroName: d.heroName,
         heroRole: d.heroRole,
         heroSummary: d.heroSummary,
-        kpi1Val: d.kpi1Val,
-        kpi1Lbl: d.kpi1Lbl,
-        kpi2Val: d.kpi2Val,
-        kpi2Lbl: d.kpi2Lbl,
-        kpi3Val: d.kpi3Val,
-        kpi3Lbl: d.kpi3Lbl,
-        kpi4Val: d.kpi4Val,
-        kpi4Lbl: d.kpi4Lbl,
+        hc1Tag: d.hc1Tag,
+        hc1Title: d.hc1Title,
+        hc1Sub: d.hc1Sub,
+        hc2Tag: d.hc2Tag,
+        hc2Title: d.hc2Title,
+        hc2Sub: d.hc2Sub,
+        hc3Tag: d.hc3Tag,
+        hc3Title: d.hc3Title,
+        hc3Sub: d.hc3Sub,
+        hc4Tag: d.hc4Tag,
+        hc4Title: d.hc4Title,
+        hc4Sub: d.hc4Sub,
         locText: d.locText,
         expSectionTitle: d.expSectionTitle,
         exp1Role: d.exp1Role,
