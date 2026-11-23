@@ -502,4 +502,449 @@
 
     @media (max-width: 780px) {
       .grid-two {
-        grid-template
+        grid-template-columns: 1fr;
+      }
+      .hero, .section-card {
+        padding: 22px 18px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #0f172a;
+      }
+      .navbar-wrap, .copy-btn, .toast, .social-row {
+        display: none !important;
+      }
+      .hero, .section-card, .exp-card, .kpi-card, .contact-box, .chip, .meta-item {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+      }
+      .hero-summary, .exp-card ul, .meta-key, .kpi-label {
+        color: #334155 !important;
+      }
+      .hero-role, .exp-period, .kpi-value {
+        color: #0369a1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar-wrap">
+    <nav class="navbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark">HS</span>
+        <span id="brandName">Hamada Sobhy Salem</span>
+      </a>
+
+      <div class="nav-links">
+        <a class="nav-link" href="#experience" id="navExp">Experience</a>
+        <a class="nav-link" href="#skills" id="navSkills">Skills</a>
+        <a class="nav-link" href="#education" id="navEdu">Education</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn" id="langBtn" onclick="toggleLanguage()">العربية</button>
+        <button class="btn btn-primary" id="printBtn" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </nav>
+  </div>
+
+  <main class="container" id="top">
+    <section class="hero">
+      <div class="hero-pill" id="heroPill">Financial Operations • Cost Control • Reporting</div>
+      <h1 id="heroName">Hamada Sobhy Salem</h1>
+      <div class="hero-role" id="heroRole">General Accountant | Cost Control Specialist</div>
+      <p class="hero-summary" id="heroSummary">
+        Results-driven General Accountant with over 8 years of experience in accounting, cost control, and inventory management across Egypt, Saudi Arabia, and Kuwait. Skilled in data analysis, financial reporting, and preparing monthly Profit &amp; Loss (P&amp;L) statements using Excel, Oracle ERP, and Foodics for data cleaning, automation, and profit-loss forecasting.
+      </p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpi1Val">8+ Years</div>
+          <div class="kpi-label" id="kpi1Lbl">Accounting &amp; Cost Control</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpi2Val">3 Markets</div>
+          <div class="kpi-label" id="kpi2Lbl">Egypt • KSA • Kuwait</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpi3Val">Monthly P&amp;L</div>
+          <div class="kpi-label" id="kpi3Lbl">Closing, Audits &amp; Forecasting</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" id="kpi4Val">ERP &amp; Excel</div>
+          <div class="kpi-label" id="kpi4Lbl">Oracle ERP • Foodics • Automation</div>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-box">
+          <span id="locText">Alexandria, Egypt</span>
+        </div>
+        <div class="contact-box">
+          <a href="tel:+201277117248">+20 127 711 7248</a>
+          <button class="copy-btn" onclick="copyText('+20 127 711 7248')">Copy</button>
+        </div>
+        <div class="contact-box">
+          <a href="mailto:Hamadasalem2013@gmail.com">Hamadasalem2013@gmail.com</a>
+          <button class="copy-btn" onclick="copyText('Hamadasalem2013@gmail.com')">Copy</button>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a class="btn" href="https://linkedin.com/in/hamada-salem-8549b438a" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn" href="https://facebook.com/hamadasobhy340" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a class="btn" href="https://instagram.com/hamada_s.salem" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </section>
+
+    <section class="section-card" id="experience">
+      <h2 class="section-title" id="expSectionTitle">Professional Experience</h2>
+      <div class="timeline">
+        <article class="exp-card">
+          <div class="exp-top">
+            <h3 class="exp-role" id="exp1Role">General Accountant — Kuwait (Remote)</h3>
+            <span class="exp-period" id="exp1Period">April 2025 – Present</span>
+          </div>
+          <ul id="exp1Bullets">
+            <li>Managed general accounting operations and prepared monthly financial reports.</li>
+            <li>Cleaned and organized financial data using Excel, Oracle ERP, and Foodics.</li>
+            <li>Reduced monthly closing time by improving data automation using Excel and Oracle.</li>
+            <li>Automated monthly accounting reports and created customized Excel formulas to simplify financial tracking and improve accuracy.</li>
+            <li>Prepared monthly Profit &amp; Loss (P&amp;L) statements and conducted financial analysis to evaluate company performance.</li>
+            <li>Conducted monthly and surprise inventory audits across branches to ensure accuracy of records and stock control.</li>
+            <li>Supported management with accurate reports for strategic decision-making.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-top">
+            <h3 class="exp-role" id="exp2Role">Cost Accountant — Saudi Arabia</h3>
+            <span class="exp-period" id="exp2Period">2022 – 2025</span>
+          </div>
+          <ul id="exp2Bullets">
+            <li>Monitored and analyzed production costs, materials, and operating expenses.</li>
+            <li>Utilized Oracle ERP and Foodics systems to record transactions and generate cost reports.</li>
+            <li>Developed automated Excel templates to calculate and monitor production costs, enhancing reporting speed and accuracy.</li>
+            <li>Collaborated with operations to improve cost efficiency and control inventory usage.</li>
+            <li>Participated in periodic stocktaking and reconciled inventory differences to maintain accurate cost data.</li>
+            <li>Prepared detailed cost reports and analyses for management and budgeting.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card">
+          <div class="exp-top">
+            <h3 class="exp-role" id="exp3Role">Accounting &amp; Inventory Manager — El Bitarawy Veterinary Clinics, Egypt</h3>
+            <span class="exp-period" id="exp3Period">2017 – 2022</span>
+          </div>
+          <ul id="exp3Bullets">
+            <li>Supervised accounting and inventory operations across multiple veterinary branches.</li>
+            <li>Managed supplier accounts, purchases, and daily expense tracking.</li>
+            <li>Recorded financial transactions and prepared monthly financial statements.</li>
+            <li>Ensured accuracy of financial data and organized documentation for audits.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <div class="grid-two">
+      <section class="section-card" id="skills">
+        <h2 class="section-title" id="skillsSectionTitle">Skills &amp; Capabilities</h2>
+
+        <div class="skill-group">
+          <div class="skill-group-title" id="sg1Title">Accounting &amp; Cost Control</div>
+          <div class="chips">
+            <span class="chip">Financial Accounting</span>
+            <span class="chip">Cost Accounting</span>
+            <span class="chip">Food Cost Control</span>
+            <span class="chip">Inventory Management</span>
+            <span class="chip">Accounts Receivable</span>
+            <span class="chip">Accounts Payable</span>
+            <span class="chip">Bank Reconciliation</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title" id="sg2Title">Financial Reporting &amp; Analysis</div>
+          <div class="chips">
+            <span class="chip">Financial Analysis</span>
+            <span class="chip">Financial Reporting</span>
+            <span class="chip">Profit &amp; Loss (P&amp;L) Analysis</span>
+            <span class="chip">Budgeting &amp; Forecasting</span>
+            <span class="chip">Data Cleaning</span>
+            <span class="chip">Pivot Tables</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title" id="sg3Title">Systems &amp; Tools</div>
+          <div class="chips">
+            <span class="chip">Microsoft Excel (Advanced)</span>
+            <span class="chip">Oracle ERP</span>
+            <span class="chip">Foodics System</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card" id="education">
+        <h2 class="section-title" id="eduSectionTitle">Education, Languages &amp; Profile</h2>
+        <div class="meta-list">
+          <div class="meta-item">
+            <div class="meta-key" id="eduKey">Education</div>
+            <div class="meta-val" id="eduVal">B.Sc. in Accounting — Faculty of Business, Alexandria University (2017–2021)</div>
+          </div>
+
+          <div class="meta-item">
+            <div class="meta-key" id="langKey">Languages</div>
+            <div class="meta-val" id="langVal">Arabic (Native) • English (Intermediate)</div>
+          </div>
+
+          <div class="meta-item">
+            <div class="meta-key" id="intKey">Interests &amp; Focus</div>
+            <div class="meta-val" id="intVal">Business &amp; Finance, Continuous Learning, Reading, Technology &amp; Innovation, Personal Development</div>
+          </div>
+
+          <div class="meta-item">
+            <div class="meta-key" id="refKey">References</div>
+            <div class="meta-val" id="refVal">Available upon request</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer" id="footerText">
+      Hamada Sobhy Salem — General Accountant &amp; Cost Control Specialist
+    </footer>
+  </main>
+
+  <div class="toast" id="toast">Copied!</div>
+
+  <script>
+    let currentLang = 'en';
+
+    const dict = {
+      ar: {
+        dir: 'rtl',
+        lang: 'ar',
+        brandName: 'حمادة صبحي سالم',
+        navExp: 'الخبرات',
+        navSkills: 'المهارات',
+        navEdu: 'التعليم',
+        langBtn: 'English',
+        printBtn: 'طباعة / حفظ PDF',
+        heroPill: 'العمليات المالية • رقابة التكاليف • التقارير المالية',
+        heroName: 'حمادة صبحي سالم',
+        heroRole: 'محاسب عام | أخصائي رقابة تكاليف',
+        heroSummary: 'محاسب عام يتمتع بأكثر من 8 سنوات من الخبرة في المحاسبة ورقابة التكاليف وإدارة المخزون عبر مصر والسعودية والكويت. يمتلك مهارات قوية في تحليل البيانات، إعداد التقارير المالية، وقوائم الأرباح والخسائر (P&L) الشهرية باستخدام Excel وOracle ERP وFoodics لتنظيف البيانات والأتمتة والتنبؤ المالي.',
+        kpi1Val: '+8 سنوات',
+        kpi1Lbl: 'خبرة في المحاسبة والتكاليف',
+        kpi2Val: '3 أسواق',
+        kpi2Lbl: 'مصر • السعودية • الكويت',
+        kpi3Val: 'قوائم P&L شهرية',
+        kpi3Lbl: 'إغلاق شهري ومراجعة وتنبؤ',
+        kpi4Val: 'ERP و Excel',
+        kpi4Lbl: 'Oracle ERP • Foodics • أتمتة',
+        locText: 'الإسكندرية، مصر',
+        expSectionTitle: 'الخبرات العملية',
+        exp1Role: 'محاسب عام — الكويت (عن بُعد)',
+        exp1Period: 'أبريل 2025 – حتى الآن',
+        exp1Bullets: [
+          'إدارة عمليات المحاسبة العامة وإعداد التقارير المالية الشهرية.',
+          'تنظيف وتنظيم البيانات المالية باستخدام Excel وOracle ERP ونظام Foodics.',
+          'تقليل وقت الإغلاق الشهري عبر تحسين أتمتة البيانات باستخدام Excel وOracle.',
+          'أتمتة التقارير المحاسبية الشهرية وإنشاء معادلات Excel مخصصة لتبسيط المتابعة وزيادة الدقة.',
+          'إعداد قوائم الأرباح والخسائر (P&L) الشهرية وإجراء التحليل المالي لتقييم أداء الشركة.',
+          'تنفيذ جرد شهري ومفاجئ للمخزون عبر الفروع لضمان دقة السجلات والرقابة على المخزون.',
+          'دعم الإدارة بتقارير دقيقة للمساعدة في اتخاذ القرارات الاستراتيجية.'
+        ],
+        exp2Role: 'محاسب تكاليف — المملكة العربية السعودية',
+        exp2Period: '2022 – 2025',
+        exp2Bullets: [
+          'متابعة وتحليل تكاليف الإنتاج والمواد والمصروفات التشغيلية.',
+          'استخدام أنظمة Oracle ERP وFoodics لتسجيل القيود وإصدار تقارير التكاليف.',
+          'تطوير قوالب Excel مؤتمتة لحساب ومتابعة تكاليف الإنتاج لرفع سرعة ودقة التقارير.',
+          'التعاون مع فرق التشغيل لتحسين كفاءة التكلفة وضبط استهلاك المخزون.',
+          'المشاركة في الجرد الدوري وتسوية فروق المخزون للحفاظ على دقة بيانات التكلفة.',
+          'إعداد تقارير وتحليلات تفصيلية للتكاليف لدعم الإدارة والموازنات.'
+        ],
+        exp3Role: 'مدير حسابات ومخازن — عيادات البيطراوي البيطرية، مصر',
+        exp3Period: '2017 – 2022',
+        exp3Bullets: [
+          'الإشراف على العمليات المحاسبية وإدارة المخزون في عدة فروع بيطرية.',
+          'إدارة حسابات الموردين والمشتريات ومتابعة المصروفات اليومية.',
+          'تسجيل المعاملات المالية وإعداد القوائم المالية الشهرية.',
+          'ضمان دقة البيانات المالية وتنظيم المستندات لأعمال المراجعة.'
+        ],
+        skillsSectionTitle: 'المهارات والكفاءات',
+        sg1Title: 'المحاسبة ورقابة التكاليف',
+        sg2Title: 'التقارير المالية والتحليل',
+        sg3Title: 'الأنظمة والأدوات',
+        eduSectionTitle: 'التعليم واللغات والاهتمامات',
+        eduKey: 'المؤهل العلمي',
+        eduVal: 'بكالوريوس التجارة — شعبة المحاسبة، جامعة الإسكندرية (2017–2021)',
+        langKey: 'اللغات',
+        langVal: 'العربية (اللغة الأم) • الإنجليزية (متوسط)',
+        intKey: 'الاهتمامات',
+        intVal: 'الأعمال والمالية، التعلم المستمر، القراءة، التكنولوجيا والابتكار، التطوير الذاتي',
+        refKey: 'المراجع',
+        refVal: 'متاحة عند الطلب',
+        footerText: 'حمادة صبحي سالم — محاسب عام وأخصائي رقابة تكاليف',
+        copied: 'تم النسخ!'
+      },
+      en: {
+        dir: 'ltr',
+        lang: 'en',
+        brandName: 'Hamada Sobhy Salem',
+        navExp: 'Experience',
+        navSkills: 'Skills',
+        navEdu: 'Education',
+        langBtn: 'العربية',
+        printBtn: 'Print / Save PDF',
+        heroPill: 'Financial Operations • Cost Control • Reporting',
+        heroName: 'Hamada Sobhy Salem',
+        heroRole: 'General Accountant | Cost Control Specialist',
+        heroSummary: 'Results-driven General Accountant with over 8 years of experience in accounting, cost control, and inventory management across Egypt, Saudi Arabia, and Kuwait. Skilled in data analysis, financial reporting, and preparing monthly Profit & Loss (P&L) statements using Excel, Oracle ERP, and Foodics for data cleaning, automation, and profit-loss forecasting.',
+        kpi1Val: '8+ Years',
+        kpi1Lbl: 'Accounting & Cost Control',
+        kpi2Val: '3 Markets',
+        kpi2Lbl: 'Egypt • KSA • Kuwait',
+        kpi3Val: 'Monthly P&L',
+        kpi3Lbl: 'Closing, Audits & Forecasting',
+        kpi4Val: 'ERP & Excel',
+        kpi4Lbl: 'Oracle ERP • Foodics • Automation',
+        locText: 'Alexandria, Egypt',
+        expSectionTitle: 'Professional Experience',
+        exp1Role: 'General Accountant — Kuwait (Remote)',
+        exp1Period: 'April 2025 – Present',
+        exp1Bullets: [
+          'Managed general accounting operations and prepared monthly financial reports.',
+          'Cleaned and organized financial data using Excel, Oracle ERP, and Foodics.',
+          'Reduced monthly closing time by improving data automation using Excel and Oracle.',
+          'Automated monthly accounting reports and created customized Excel formulas to simplify financial tracking and improve accuracy.',
+          'Prepared monthly Profit & Loss (P&L) statements and conducted financial analysis to evaluate company performance.',
+          'Conducted monthly and surprise inventory audits across branches to ensure accuracy of records and stock control.',
+          'Supported management with accurate reports for strategic decision-making.'
+        ],
+        exp2Role: 'Cost Accountant — Saudi Arabia',
+        exp2Period: '2022 – 2025',
+        exp2Bullets: [
+          'Monitored and analyzed production costs, materials, and operating expenses.',
+          'Utilized Oracle ERP and Foodics systems to record transactions and generate cost reports.',
+          'Developed automated Excel templates to calculate and monitor production costs, enhancing reporting speed and accuracy.',
+          'Collaborated with operations to improve cost efficiency and control inventory usage.',
+          'Participated in periodic stocktaking and reconciled inventory differences to maintain accurate cost data.',
+          'Prepared detailed cost reports and analyses for management and budgeting.'
+        ],
+        exp3Role: 'Accounting & Inventory Manager — El Bitarawy Veterinary Clinics, Egypt',
+        exp3Period: '2017 – 2022',
+        exp3Bullets: [
+          'Supervised accounting and inventory operations across multiple veterinary branches.',
+          'Managed supplier accounts, purchases, and daily expense tracking.',
+          'Recorded financial transactions and prepared monthly financial statements.',
+          'Ensured accuracy of financial data and organized documentation for audits.'
+        ],
+        skillsSectionTitle: 'Skills & Capabilities',
+        sg1Title: 'Accounting & Cost Control',
+        sg2Title: 'Financial Reporting & Analysis',
+        sg3Title: 'Systems & Tools',
+        eduSectionTitle: 'Education, Languages & Profile',
+        eduKey: 'Education',
+        eduVal: 'B.Sc. in Accounting — Faculty of Business, Alexandria University (2017–2021)',
+        langKey: 'Languages',
+        langVal: 'Arabic (Native) • English (Intermediate)',
+        intKey: 'Interests & Focus',
+        intVal: 'Business & Finance, Continuous Learning, Reading, Technology & Innovation, Personal Development',
+        refKey: 'References',
+        refVal: 'Available upon request',
+        footerText: 'Hamada Sobhy Salem — General Accountant & Cost Control Specialist',
+        copied: 'Copied!'
+      }
+    };
+
+    function setBullets(id, list) {
+      document.getElementById(id).innerHTML = list.map(item => `<li>${item}</li>`).join('');
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'ar' : 'en';
+      const d = dict[currentLang];
+      document.documentElement.dir = d.dir;
+      document.documentElement.lang = d.lang;
+
+      const textMap = {
+        brandName: d.brandName,
+        navExp: d.navExp,
+        navSkills: d.navSkills,
+        navEdu: d.navEdu,
+        langBtn: d.langBtn,
+        printBtn: d.printBtn,
+        heroPill: d.heroPill,
+        heroName: d.heroName,
+        heroRole: d.heroRole,
+        heroSummary: d.heroSummary,
+        kpi1Val: d.kpi1Val,
+        kpi1Lbl: d.kpi1Lbl,
+        kpi2Val: d.kpi2Val,
+        kpi2Lbl: d.kpi2Lbl,
+        kpi3Val: d.kpi3Val,
+        kpi3Lbl: d.kpi3Lbl,
+        kpi4Val: d.kpi4Val,
+        kpi4Lbl: d.kpi4Lbl,
+        locText: d.locText,
+        expSectionTitle: d.expSectionTitle,
+        exp1Role: d.exp1Role,
+        exp1Period: d.exp1Period,
+        exp2Role: d.exp2Role,
+        exp2Period: d.exp2Period,
+        exp3Role: d.exp3Role,
+        exp3Period: d.exp3Period,
+        skillsSectionTitle: d.skillsSectionTitle,
+        sg1Title: d.sg1Title,
+        sg2Title: d.sg2Title,
+        sg3Title: d.sg3Title,
+        eduSectionTitle: d.eduSectionTitle,
+        eduKey: d.eduKey,
+        eduVal: d.eduVal,
+        langKey: d.langKey,
+        langVal: d.langVal,
+        intKey: d.intKey,
+        intVal: d.intVal,
+        refKey: d.refKey,
+        refVal: d.refVal,
+        footerText: d.footerText
+      };
+
+      Object.entries(textMap).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      });
+
+      setBullets('exp1Bullets', d.exp1Bullets);
+      setBullets('exp2Bullets', d.exp2Bullets);
+      setBullets('exp3Bullets', d.exp3Bullets);
+    }
+
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.textContent = dict[currentLang].copied;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1800);
+      });
+    }
+  </script>
+</body>
+</html>
